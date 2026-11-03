@@ -1,3 +1,4 @@
+import json
 import logging
 import os 
 
@@ -10,19 +11,11 @@ logging.basicConfig(level=logging.INFO,
 
 logger = logging.getLogger(__name__)
 
-COLUMNS = [
-    "claim_id",
-    "policy_id",
-    "claim_date",
-    "declaration_date",
-    "region",
-    "vehicle_type",
-    "claim_type",
-    "claim_status",
-    "claim_amount",
-    "reimbursement_amount",
-    "deductible_amount",
-]
+COLUMNS = []
+
+with open("data/business_config.json", "r", encoding="utf-8") as f:
+    config = json.load(f)
+    COLUMNS = config["columns"]
 
 def load_raw_claims()-> None:
     """Load raw claims data into BigQuery."""
