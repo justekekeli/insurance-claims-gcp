@@ -1,0 +1,81 @@
+{
+    "regions": [
+    "Normandie",
+    "Bretagne",
+    "Île-de-France",
+    "Occitanie",
+    "Nouvelle-Aquitaine",
+    "Auvergne-Rhône-Alpes",
+    "Hauts-de-France",
+    "Pays de la Loire",
+    "Grand Est",
+    "Provence-Alpes-Côte d'Azur",
+    "Bourgogne-Franche-Comté",
+    "Centre-Val de Loire",
+    "Corse"
+  ],
+    "claim_types": [
+        "Collision",
+        "Glass breakage",
+        "Theft",
+        "Fire",
+        "Natural disaster"
+    ],
+    "claim_amount_ranges": {
+        "Collision": [1000, 10000],
+        "Glass breakage": [200, 2000],
+        "Theft": [500, 15000],
+        "Fire": [1000, 20000],
+        "Natural disaster": [5000, 50000]
+    },
+    "vehicle_types": [
+        "SUV",
+        "City car",
+        "Utility"
+    ],
+    "claim_statuses": [
+        "Open",
+        "In Progress",
+        "Closed",
+        "Rejected"
+    ],
+    "columns": [
+        "claim_id",
+        "policy_id",
+        "claim_date",
+        "declaration_date",
+        "region",
+        "vehicle_type",
+        "claim_type",
+        "claim_status",
+        "claim_amount",
+        "reimbursement_amount",
+        "deductible_amount"
+    ],
+    "validation": {
+        "required_columns": [
+            "claim_id",
+            "policy_id",
+            "claim_date",
+            "declaration_date",
+            "region",
+            "vehicle_type",
+            "claim_type",
+            "claim_status",
+            "claim_amount",
+            "reimbursement_amount",
+            "deductible_amount"
+        ],
+        "amount_columns": [
+            "claim_amount",
+            "reimbursement_amount",
+            "deductible_amount"
+        ],
+        "date_columns": [
+            "claim_date",
+            "declaration_date"
+        ]
+
+    }
+
+}

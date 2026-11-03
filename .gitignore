@@ -158,6 +158,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+*service-account*.json
 
 # Spyder project settings
 .spyderproject
@@ -218,3 +219,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local data
+data/raw/
+data/processed/
