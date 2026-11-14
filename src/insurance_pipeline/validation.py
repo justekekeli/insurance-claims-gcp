@@ -115,18 +115,26 @@ def validate_claims(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
         "REIMBURSEMENT_EXCEEDS_CLAIM",
     )
 
+    
     # Split valid and rejected records.
     rejected_mask = data["rejection_reasons"].map(bool)
 
     valid_df = data.loc[~rejected_mask].copy()
-    rejected_df = data.loc[rejected_mask].copy()
 
-    # Convert rejection reasons to a portable string.
+    # Preserve original source values for rejected records.
+    rejected_df = df.loc[rejected_mask].copy()
+
+    rejected_df["source_row_number"] = (
+        data.loc[rejected_mask, "source_row_number"]
+    )
+
     rejected_df["rejection_reasons"] = (
-        rejected_df["rejection_reasons"]
+        data.loc[rejected_mask, "rejection_reasons"]
         .map(lambda reasons: "|".join(reasons))
     )
 
     valid_df = valid_df.drop(columns=["rejection_reasons"])
+
+
 
     return valid_df, rejected_df
