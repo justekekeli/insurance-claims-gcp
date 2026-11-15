@@ -220,6 +220,6 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-# Local data
-data/raw/
-data/processed/
+# Local execution logs
+logs/
+*.jsonl
