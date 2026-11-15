@@ -414,7 +414,3 @@ The following enhancements are planned for a second version of the project.
 - Introduce `run_id` to trace individual pipeline executions.
 - Capture execution status, processing duration, record counts, and errors.
 - Prepare centralized monitoring with Google Cloud Logging.
-
----
-
-**Project focus:** Building a modular, reproducible, and quality-controlled batch data pipeline using Python and Google Cloud Platform.
