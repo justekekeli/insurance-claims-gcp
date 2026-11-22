@@ -19,14 +19,12 @@ The main objectives are to:
 
 ### Data Platform Architecture
 
-![Insurance Claims Data Platform Architecture](01_insurance_data_platform_project.png)
+![Insurance Claims Data Platform Architecture](01_insurance_data_platform_project_v1.png)
 
 
 ### Pipeline Workflow
 
 The pipeline follows a layered architecture:
-
-![Insurance Claims Data Pipeline Workflow](02_insurance_data_pipeline_workflow.png)
 
 
 | Step | Component | Description |
@@ -194,6 +192,8 @@ The dashboard includes:
 - **4 interactive filters:** claim date, claim type, vehicle type, and claim status.
 
 The dashboard demonstrates how validated claims data can support insurance analytics and business decision-making.
+
+![Insurance claims dashboard](dashboard/insurance_claims_dashboard.png)
 
 **[View Dashboard (PDF)](dashboard/insurance_claims_dashboard.pdf)**
 
@@ -412,20 +412,23 @@ The project follows several practical data engineering principles:
 
 ## 🚀 Future Improvements — V2
 
-The following enhancements are planned for a second version of the project.
+The following enhancements are planned to evolve this portfolio project into a more automated, observable, and production-oriented GCP data platform.
 
-### 1. Synthetic Insurance Policies Dataset
+### Cloud Deployment & Scheduling
+- **Cloud Run Jobs:** Containerize the Python pipeline and deploy it to Google Cloud for serverless execution.
+- **Cloud Scheduler:** Schedule automated pipeline executions without relying on a local environment.
+- **Incremental Processing:** Replace full-table refreshes (`WRITE_TRUNCATE`) with incremental ingestion, deduplication, and historical data management.
 
-- Generate a synthetic `policies` dataset, including contracts without claims.
-- Maintain referential consistency between claims and insurance policies.
-- Ingest and transform policy data using GCS and BigQuery.
-- Calculate annual claim frequency by region using policy-year exposure.
-- Extend analytics with policy-based KPIs.
+### Monitoring & Observability
+- **Google Cloud Logging:** Implement structured JSON logs containing `run_id`, `batch_id`, execution status, duration, and record counts.
+- **Google Cloud Monitoring:** Create monitoring dashboards and alerts for failed executions and pipeline performance.
+- **Data Quality Monitoring:** Track rejected records, rejection rates, and validation failures over time.
 
-### 2. Structured JSON Logging
+### Data Model & Advanced Analytics
+- **Insurance Policy Data:** Generate synthetic insurance policies, including contracts without claims.
+- **Advanced Insurance KPIs:** Calculate claim frequency using policy-year exposure and introduce additional insurance performance indicators.
 
-- Implement structured JSON logs across all pipeline stages.
-- Introduce `batch_id` to identify processed data batches.
-- Introduce `run_id` to trace individual pipeline executions.
-- Capture execution status, processing duration, record counts, and errors.
-- Prepare centralized monitoring with Google Cloud Logging.
+### Infrastructure & CI/CD
+- **Terraform:** Manage GCP infrastructure as code.
+- **GitHub Actions:** Automate testing and deployment workflows.
+- **Google Cloud Workflows:** Explore multi-step orchestration if the pipeline evolves into independent cloud jobs.
