@@ -184,6 +184,21 @@ SQL queries are organized in the `sql/` directory.
 
 These analyses help compare claim activity and financial exposure across the dataset.
 
+## Analytics Dashboard
+
+An interactive insurance claims dashboard was developed using **Looker Studio**, connected to the curated BigQuery dataset.
+
+The dashboard includes:
+- **4 KPIs:** total valid claims, total claim amount, total reimbursement amount, and reimbursement rate.
+- **5 visualizations:** regional distribution, monthly claims trend, monthly financial comparison, and distributions by claim type, vehicle type, and claim status.
+- **4 interactive filters:** claim date, claim type, vehicle type, and claim status.
+
+The dashboard demonstrates how validated claims data can support insurance analytics and business decision-making.
+
+**[View Dashboard (PDF)](dashboard/insurance_claims_dashboard.pdf)**
+
+The interactive Looker Studio dashboard is available upon request.
+
 ## ▶️ Running the Pipeline
 
 This section explains how to reproduce the complete data pipeline, from synthetic CSV generation to BigQuery analytics.
