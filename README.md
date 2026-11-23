@@ -359,7 +359,7 @@ FROM `PROJECT_ID.analytics_dt.claims_clean`
 UNION ALL
 
 SELECT 'rejected', COUNT(*)
-FROM `YOUR_PROJECT_ID.analytics_dt.claims_rejected`;
+FROM `PROJECT_ID.analytics_dt.claims_rejected`;
 ```
 
 Expected results:
